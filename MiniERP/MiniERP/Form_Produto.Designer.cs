@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panel1 = new Panel();
             button_Editar = new Button();
             textBox_Id = new TextBox();
@@ -199,10 +200,19 @@
             // 
             dataGridView_Produtos.AllowUserToAddRows = false;
             dataGridView_Produtos.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView_Produtos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView_Produtos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_Produtos.Location = new Point(52, 317);
             dataGridView_Produtos.Name = "dataGridView_Produtos";
             dataGridView_Produtos.ReadOnly = true;
+            dataGridView_Produtos.RowHeadersVisible = false;
             dataGridView_Produtos.RowTemplate.Height = 25;
             dataGridView_Produtos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView_Produtos.Size = new Size(703, 367);

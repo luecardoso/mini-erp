@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panel1 = new Panel();
             button_Editar = new Button();
             button_Voltar = new Button();
@@ -39,6 +40,8 @@
             textBox_Nome = new TextBox();
             textBox_Id = new TextBox();
             label1 = new Label();
+            colunaID = new DataGridViewTextBoxColumn();
+            colunaNome = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_Fornecedores).BeginInit();
             SuspendLayout();
@@ -86,10 +89,20 @@
             // 
             dataGridView_Fornecedores.AllowUserToAddRows = false;
             dataGridView_Fornecedores.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView_Fornecedores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView_Fornecedores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView_Fornecedores.Columns.AddRange(new DataGridViewColumn[] { colunaID, colunaNome });
             dataGridView_Fornecedores.Location = new Point(44, 215);
             dataGridView_Fornecedores.Name = "dataGridView_Fornecedores";
             dataGridView_Fornecedores.ReadOnly = true;
+            dataGridView_Fornecedores.RowHeadersVisible = false;
             dataGridView_Fornecedores.RowTemplate.Height = 25;
             dataGridView_Fornecedores.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView_Fornecedores.Size = new Size(703, 367);
@@ -155,6 +168,21 @@
             label1.TabIndex = 4;
             label1.Text = "ID: ";
             // 
+            // colunaID
+            // 
+            colunaID.DataPropertyName = "Id";
+            colunaID.HeaderText = "ID";
+            colunaID.Name = "colunaID";
+            colunaID.ReadOnly = true;
+            // 
+            // colunaNome
+            // 
+            colunaNome.DataPropertyName = "Nome";
+            colunaNome.HeaderText = "Nome";
+            colunaNome.Name = "colunaNome";
+            colunaNome.ReadOnly = true;
+            colunaNome.Width = 550;
+            // 
             // Form_Fornecedor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -182,5 +210,7 @@
         private Button button_Cadastrar;
         private Button button_Voltar;
         private Button button_Editar;
+        private DataGridViewTextBoxColumn colunaID;
+        private DataGridViewTextBoxColumn colunaNome;
     }
 }

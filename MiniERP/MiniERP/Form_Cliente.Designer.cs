@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panel1 = new Panel();
             button_editar = new Button();
             button_Voltar = new Button();
@@ -98,10 +99,19 @@
             // 
             dataGridView_Clientes.AllowUserToAddRows = false;
             dataGridView_Clientes.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView_Clientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView_Clientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_Clientes.Location = new Point(59, 301);
             dataGridView_Clientes.Name = "dataGridView_Clientes";
             dataGridView_Clientes.ReadOnly = true;
+            dataGridView_Clientes.RowHeadersVisible = false;
             dataGridView_Clientes.RowTemplate.Height = 25;
             dataGridView_Clientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView_Clientes.Size = new Size(703, 367);

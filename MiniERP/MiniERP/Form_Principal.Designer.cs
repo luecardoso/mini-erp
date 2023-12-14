@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panel1 = new Panel();
             label_ID = new Label();
             button_RemoverItens = new Button();
@@ -195,10 +198,19 @@
             // 
             dataGridView_Clientes.AllowUserToAddRows = false;
             dataGridView_Clientes.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView_Clientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView_Clientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_Clientes.Location = new Point(25, 92);
             dataGridView_Clientes.Name = "dataGridView_Clientes";
             dataGridView_Clientes.ReadOnly = true;
+            dataGridView_Clientes.RowHeadersVisible = false;
             dataGridView_Clientes.RowTemplate.Height = 25;
             dataGridView_Clientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView_Clientes.Size = new Size(559, 151);
@@ -244,10 +256,19 @@
             // 
             dataGridView_Produtos.AllowUserToAddRows = false;
             dataGridView_Produtos.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridView_Produtos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView_Produtos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_Produtos.Location = new Point(25, 355);
             dataGridView_Produtos.Name = "dataGridView_Produtos";
             dataGridView_Produtos.ReadOnly = true;
+            dataGridView_Produtos.RowHeadersVisible = false;
             dataGridView_Produtos.RowTemplate.Height = 25;
             dataGridView_Produtos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView_Produtos.Size = new Size(559, 318);
@@ -293,10 +314,19 @@
             // 
             dataGridView_ItemPedido.AllowUserToAddRows = false;
             dataGridView_ItemPedido.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridView_ItemPedido.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridView_ItemPedido.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_ItemPedido.Location = new Point(660, 68);
             dataGridView_ItemPedido.Name = "dataGridView_ItemPedido";
             dataGridView_ItemPedido.ReadOnly = true;
+            dataGridView_ItemPedido.RowHeadersVisible = false;
             dataGridView_ItemPedido.RowTemplate.Height = 25;
             dataGridView_ItemPedido.Size = new Size(547, 645);
             dataGridView_ItemPedido.TabIndex = 1;
@@ -330,6 +360,7 @@
             visualizarComprasToolStripMenuItem.Name = "visualizarComprasToolStripMenuItem";
             visualizarComprasToolStripMenuItem.Size = new Size(174, 22);
             visualizarComprasToolStripMenuItem.Text = "Visualizar Compras";
+            visualizarComprasToolStripMenuItem.Click += visualizarComprasToolStripMenuItem_Click;
             // 
             // fornecedoresToolStripMenuItem_Fornecedor
             // 
@@ -355,8 +386,9 @@
             // informacoesToolStripMenuItem_Informacoes
             // 
             informacoesToolStripMenuItem_Informacoes.Name = "informacoesToolStripMenuItem_Informacoes";
-            informacoesToolStripMenuItem_Informacoes.Size = new Size(140, 22);
+            informacoesToolStripMenuItem_Informacoes.Size = new Size(180, 22);
             informacoesToolStripMenuItem_Informacoes.Text = "Informações";
+            informacoesToolStripMenuItem_Informacoes.Click += informacoesToolStripMenuItem_Informacoes_Click;
             // 
             // Form_Principal
             // 

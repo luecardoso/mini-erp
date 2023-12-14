@@ -22,6 +22,8 @@ namespace MiniERP
             {
                 var clientes = contexto.Clientes.ToList();
                 dataGridView_Clientes.DataSource = clientes;
+                dataGridView_Clientes.Columns.Remove(dataGridView_Clientes.Columns["Telefone"]);
+                dataGridView_Clientes.Columns.Remove(dataGridView_Clientes.Columns["Pedidos"]);
             }
         }
 
@@ -69,7 +71,7 @@ namespace MiniERP
                 MessageBox.Show("Selecione um cliente para realizar a compra");
                 return false;
             }
-            if (ListaItem.Count <1)
+            if (ListaItem.Count < 1)
             {
                 MessageBox.Show("Adicione produtos a lista!");
                 return false;
@@ -141,12 +143,12 @@ namespace MiniERP
                     contexto.Pedidos.Add(pedido);
                     cliente.Pedidos.Add(pedido);
                     contexto.SaveChanges();
-                    
+
                     MessageBox.Show("Venda realizada com sucesso!");
                     limparCampos();
                 }
             }
-            
+
         }
 
         private void limparCampos()
@@ -206,6 +208,18 @@ namespace MiniERP
                     dataGridView_Produtos.DataSource = listaProdutos;
                 }
             }
+        }
+
+        private void visualizarComprasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_Compras compras = new Form_Compras();
+            compras.Show();
+            this.Hide();
+        }
+
+        private void informacoesToolStripMenuItem_Informacoes_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Desafio III - Academia .NET - Lucas Cardoso");
         }
     }
 }
