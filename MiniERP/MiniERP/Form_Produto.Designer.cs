@@ -117,6 +117,7 @@
             comboBox_Fornecedor.Location = new Point(460, 122);
             comboBox_Fornecedor.Name = "comboBox_Fornecedor";
             comboBox_Fornecedor.Size = new Size(310, 23);
+            comboBox_Fornecedor.Sorted = true;
             comboBox_Fornecedor.TabIndex = 5;
             // 
             // label7

@@ -30,15 +30,23 @@ namespace MiniERP
 
         private void salvar()
         {
-            using (var contexto = new MiniErpContext())
+            if (String.IsNullOrEmpty(textBox_Nome.Text))
             {
-                Fornecedor fornecedor = new Fornecedor();
-                fornecedor.Nome = textBox_Nome.Text;
-                contexto.Fornecedors.Add(fornecedor);
-                contexto.SaveChanges();
-                MessageBox.Show("Fornecedor salvo com sucesso!");
-                listar();
-                limparCampos();
+                MessageBox.Show("Digite um nome!");
+            }
+            else
+            {
+                using (var contexto = new MiniErpContext())
+                {
+                    Fornecedor fornecedor = new Fornecedor();
+                    fornecedor.Nome = textBox_Nome.Text;
+                    contexto.Fornecedors.Add(fornecedor);
+                    contexto.SaveChanges();
+                    MessageBox.Show("Fornecedor salvo com sucesso!");
+                    listar();
+                    limparCampos();
+                }
+
             }
         }
 
@@ -63,16 +71,23 @@ namespace MiniERP
 
         private void salvarAlterado()
         {
-            using (var contexto = new MiniErpContext())
+            if (String.IsNullOrEmpty(textBox_Nome.Text))
             {
-                int id = int.Parse(textBox_Id.Text);
-                Fornecedor fornecedorAletrado = contexto.Fornecedors.Find(id);
-                fornecedorAletrado.Nome = textBox_Nome.Text;
-                contexto.Fornecedors.Update(fornecedorAletrado);
-                contexto.SaveChanges();
-                MessageBox.Show("Fornecedor editado com sucesso!");
-                listar();
-                limparCampos();
+                MessageBox.Show("Digite um nome!");
+            }
+            else
+            {
+                using (var contexto = new MiniErpContext())
+                {
+                    int id = int.Parse(textBox_Id.Text);
+                    Fornecedor fornecedorAletrado = contexto.Fornecedors.Find(id);
+                    fornecedorAletrado.Nome = textBox_Nome.Text;
+                    contexto.Fornecedors.Update(fornecedorAletrado);
+                    contexto.SaveChanges();
+                    MessageBox.Show("Fornecedor editado com sucesso!");
+                    listar();
+                    limparCampos();
+                }
             }
         }
 

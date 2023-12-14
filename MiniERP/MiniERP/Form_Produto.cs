@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.EntityFrameworkCore;
 using MiniERP.DataModels;
 
 namespace MiniERP
@@ -66,10 +67,12 @@ namespace MiniERP
                     using (var contexto = new MiniErpContext())
                     {
                         Produto produto = new Produto();
+                        int idFornecedor = (comboBox_Fornecedor.SelectedItem as Fornecedor).Id;
+                        string nomeForncedor = comboBox_Fornecedor.Text;
                         produto.Nome = textBox_Nome.Text;
                         produto.Quantidade = int.Parse(textBox_Quantidade.Text);
                         produto.Preco = decimal.Parse(textBox_Preco.Text);
-                        produto.FkFornecedor = int.Parse(comboBox_Fornecedor.Text);
+                        produto.FkFornecedor = idFornecedor;
                         produto.Descricao = textBox_Descricao.Text;
                         Fornecedor fornecedor = new Fornecedor();
                         fornecedor.Produtos.Add(produto);
@@ -119,10 +122,9 @@ namespace MiniERP
             using (var contexto = new MiniErpContext())
             {
                 var fornecedores = contexto.Fornecedors.ToList();
-                comboBox_Fornecedor.Items.Clear();
-                comboBox_Fornecedor.DisplayMember = "Id";
                 comboBox_Fornecedor.DataSource = fornecedores;
-                comboBox_Fornecedor.Refresh();
+                comboBox_Fornecedor.DisplayMember = "Nome";
+                comboBox_Fornecedor.ValueMember = "Id";
             }
         }
 

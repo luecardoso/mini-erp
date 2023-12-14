@@ -78,19 +78,27 @@ namespace MiniERP
             }
             else
             {
-                using (var contexto = new MiniErpContext())
+                try
                 {
-                    int id = int.Parse(textBox_Id.Text);
-                    Cliente clienteAlterado = contexto.Clientes.Find(id);
-                    clienteAlterado.Nome = textBox_Nome.Text;
-                    clienteAlterado.DataNascimento = maskedTextBox_DataNascimento.Text;
-                    clienteAlterado.Telefone = maskedTextBox_Telefone.Text;
-                    clienteAlterado.Sexo = comboBox_Sexo.SelectedItem.ToString();
-                    contexto.Clientes.Update(clienteAlterado);
-                    contexto.SaveChanges();
-                    MessageBox.Show("Cliente editado com sucesso!");
-                    listar();
-                    limparCampos();
+                    using (var contexto = new MiniErpContext())
+                    {
+                        int id = int.Parse(textBox_Id.Text);
+                        Cliente clienteAlterado = contexto.Clientes.Find(id);
+                        clienteAlterado.Nome = textBox_Nome.Text;
+                        clienteAlterado.DataNascimento = maskedTextBox_DataNascimento.Text;
+                        clienteAlterado.Telefone = maskedTextBox_Telefone.Text;
+                        clienteAlterado.Sexo = comboBox_Sexo.SelectedItem.ToString();
+                        contexto.Clientes.Update(clienteAlterado);
+                        contexto.SaveChanges();
+                        MessageBox.Show("Cliente editado com sucesso!");
+                        listar();
+                        limparCampos();
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Não foi possível alterar os dados: "+ex);
                 }
             }
         }
